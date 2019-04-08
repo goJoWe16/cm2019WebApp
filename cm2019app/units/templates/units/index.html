@@ -15,6 +15,13 @@
         {% endfor %}
     </ul>
     {% load static %}
-<img src="{% static data_loaded.image_heavy %}" alt="My image"/>
+{#    {% if data_loaded.weight <= 10 %}#}
+{#        <img src="{% static data_loaded.image_light %}" alt="Image of lightweight object"/>#}
+{#        {%  elif data_loaded.weight <= 100 %}#}
+{#        <img src="{% static data_loaded.image_middle %}" alt="Image of middle-weight object"/>#}
+{#        {% else %}#}
+{#        <img src="{% static data_loaded.image_heavy %}" alt="Image of heavy-weight object"/>#}
+{#    {% endif %}#}
+     <img src="{% static data_loaded.image %}" alt="Image of an object"/>
 </body>
 </html>
