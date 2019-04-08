@@ -17,7 +17,7 @@
     {% load static %}
      <img src="{% static data_loaded.image %}" alt="Image of an object"
           style="filter: brightness({{ data_loaded.brightness }}) saturate({{ data_loaded.saturation }});
-                  opacity: {{ data_loaded.opacity }}
-                  "/>
+                  opacity: {{ data_loaded.opacity }}"
+     width="{{ data_loaded.size }}%"/>
 </body>
 </html>

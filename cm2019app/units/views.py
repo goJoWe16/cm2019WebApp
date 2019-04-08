@@ -3,6 +3,7 @@ from django.shortcuts import render
 import yaml
 import io
 
+
 #
 
 
@@ -14,20 +15,31 @@ def index(request):
         except yaml.YAMLError as exc:
             print(exc)
 
-    context= {
+    context = {
         'data_loaded': data_loaded
     }
 
-    weight =int(splitUnits(data_loaded.get('weight'))[0])
+    weight = int(getWithoutUnit(data_loaded.get('weight')))
+    distance = int(getWithoutUnit(data_loaded.get('distance')))
 
-    if weight <= 10:
+    if weight < 10:
         data_loaded['image'] = data_loaded.get('image_light')
     elif weight < 100:
         data_loaded['image'] = data_loaded.get('image_middle')
     else:
         data_loaded['image'] = data_loaded.get('image_heavy')
 
+    if distance < 10:
+        data_loaded['size'] = 10
+    elif distance < 100:
+        data_loaded['size'] = 50
+    else:
+        data_loaded['size'] = 100
+
     return render(request, "units/index.html", context)
 
-def splitUnits(givenString):
-    return givenString.split(" ",  1)
+
+def getWithoutUnit(givenValue):
+    stringValue = str(givenValue)
+    value = stringValue.split(" ")
+    return value[0]
