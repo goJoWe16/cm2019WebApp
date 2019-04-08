@@ -1,9 +1,9 @@
 color: ffee77
 distance: 1234 km
-weight: 1 kg
-brightness: 1
-saturation: 1
-opacity: 1
+weight: 100 kg
+brightness: 0.9
+saturation: 0.5
+opacity: 0.9
 image_light: units/feather.png
 image_middle: units/scale.png
 image_heavy: units/ringer.png

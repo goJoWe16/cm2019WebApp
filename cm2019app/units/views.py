@@ -22,7 +22,7 @@ def index(request):
 
     if weight <= 10:
         data_loaded['image'] = data_loaded.get('image_light')
-    elif weight <= 100:
+    elif weight < 100:
         data_loaded['image'] = data_loaded.get('image_middle')
     else:
         data_loaded['image'] = data_loaded.get('image_heavy')
